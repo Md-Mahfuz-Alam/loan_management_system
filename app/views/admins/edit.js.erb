@@ -1,0 +1,3 @@
+$('body').find('#edit_loan_modal').remove();
+$('body').append('<%= j (render "partials/edit_loan_modal") %>');
+$('#edit_loan_modal').modal('show');

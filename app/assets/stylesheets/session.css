@@ -1,0 +1,48 @@
+@import "bootstrap";
+
+
+.session-info{
+    max-width: 45vw;
+
+}
+.navbar-nav{
+    display: flex;
+}
+
+.session-container{
+    margin-top: 1rem;
+    margin-left: 5rem;
+}
+.button-design{
+    border: 0;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, .3) 0 5px 15px;
+    box-sizing: border-box;
+    color: #f5efef;
+    cursor: pointer;
+    font-family: Montserrat,sans-serif;
+    font-size: .9em;
+    padding: 10px 15px;
+    text-align: center;
+    user-select: none;
+    /* -webkit-user-select: none; */
+    touch-action: manipulation;
+  
+  }
+  .navbar-expand-lg .navbar-collapse {
+	display: flex !important;
+	flex-basis: auto;
+	margin-left: 5rem;
+	margin-right: 5rem;
+}
+.navbar-expand-lg .navbar-nav {
+	flex-direction: row;
+	gap: 4rem;
+}
+.navbar-expand-lg {
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	background-color: rgb(40, 93, 105);
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}

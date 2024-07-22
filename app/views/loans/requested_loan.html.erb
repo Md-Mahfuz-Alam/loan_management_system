@@ -1,0 +1,34 @@
+<h1 class="text-center mt-5">Requested Loans</h1>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <% if @loans.any? %>
+        <div style="max-height: 450px; overflow-y: auto;" class="card user-card">
+          <table class="table table-striped table-bordered text-center">
+            <thead class="thead-dark">
+              <tr>
+                                <th scope="col"> p Amount</th>
+
+                <th scope="col">Amount</th>
+                <th scope="col">Interest Rate</th>
+                <th scope="col">Delete Request</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @loans.each do |loan| %>
+                <tr>
+                  <td><%= loan.principle_amount.to_i %></td>
+                  <td><%= loan.amount_with_interest %></td>
+                  <td><%= loan.interest_rate %></td>
+                  <td><%= button_to "Delete", loan_path(loan.id), method: :delete, class: "btn btn-link text-decoration-none text-reset button-design btn-danger text-white" %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      <% else %>
+        <p class="text-center">No loans present</p>
+      <% end %>
+    </div>
+  </div>
+</div>

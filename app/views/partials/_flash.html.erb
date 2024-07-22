@@ -1,0 +1,20 @@
+<% if flash.notice %>
+  <div class="modal flash-modal" id="flashModal" tabindex="-1" role="dialog" aria-labelledby="flashModalLabel" aria-hidden="true">
+    <div class="modal-dialog " role="document">
+      <div class="alert alert-success flash-message">
+        <div class="text-center">
+          <%= flash.notice %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<script>
+  $(document).ready(function() {
+  $('#flashModal').modal('show');
+  setTimeout(function() {
+    $('#flashModal').modal('hide');
+  }, 2000);
+});
+  </script>

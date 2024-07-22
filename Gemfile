@@ -15,7 +15,12 @@ gem "bcrypt"
 gem "sidekiq"
 
 gem "bootstrap", "~> 5.0"
+gem 'rails-ujs'
+gem 'jquery-rails'
+gem 'turbolinks', '~> 5'
 
+
+gem "bootsnap", require: false
 
 gem 'sassc-rails'
 

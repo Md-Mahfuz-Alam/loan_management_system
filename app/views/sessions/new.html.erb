@@ -1,0 +1,31 @@
+<div class="session-container d-flex justify-content-between ">
+  <div class="session-info ">
+<h2 class="mb-5 ">Loan Management System </h2>
+    <%= image_tag 'homepage_image.webp', class: "img-fluid rounded", alt: "login page image." %>
+        <p class="my-4 font-italic font-weight-bold text-justify" style="word-spacing: 10px">
+      A Loan management application is a software system designed to streamline and enhance various administrative and operational tasks within a loan facility. This application serves as a centralized platform for managing different aspects of financial operations, including lenders records, appointments, staff scheduling, billing, inventory management, and more.
+
+      One of the primary features of a loan management application is money management. It allows money providers to maintain comprehensive electronic financial records  for each lender, including loan history. This digital record system improves the efficiency of data retrieval, reduces paperwork, and enables better collaboration among financial professionals.
+    </p>
+  </div>
+
+ <div class="container form-container ">
+
+<h1 class="text-center mt-5">Please Log In</h1>
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+      <%= form_with url: sessions_path do |form| %>
+        <div class="form-group my-3">
+          <%= form.label :Email , class: 'required' %>
+          <%= form.email_field :email, class: "form-control", placeholder: "example@gmail.com", required: true %>
+        </div>
+        <div class="form-group my-3">
+          <%= form.label :password, class: 'required' %>
+          <%= form.password_field :password, class: "form-control", placeholder: "password",required: true %>
+        </div>
+        <%= form.submit "Login", class: "mt-5 button-design btn-primary form-control" %>
+      <% end %>
+    </div>
+  </div>
+ </div>
+ </div>
