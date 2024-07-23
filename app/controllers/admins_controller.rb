@@ -18,7 +18,7 @@ class AdminsController < ApplicationController
     if @loan.update(state: 'approved', approved_by_id: current_user.id,  interest_rate: params[:admin_interest_rate].present? ? params[:admin_interest_rate] : params[:interest_rate])
       redirect_to admins_path, flash: { notice: 'Loan Approved Sucessfully.' }
     else
-      redirect_to root_path, flash: { notice: 'Something went wrong' }
+      redirect_to admins_path, flash: { notice: 'Something went wrong' }
     end
   end
 
@@ -27,7 +27,7 @@ class AdminsController < ApplicationController
     if @loan.update(state: 'rejected', rejected_by_id: current_user.id)
       redirect_to admins_path, flash: { notice: 'Loan rejected.' }
     else
-      redirect_to root_path, flash: { notice: 'Something went wrong, Unable to reject loan' }
+      redirect_to admins_path, flash: { notice: 'Something went wrong, Unable to reject loan' }
     end
   end
 

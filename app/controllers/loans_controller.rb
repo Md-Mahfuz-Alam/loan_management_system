@@ -13,9 +13,8 @@ class LoansController < ApplicationController
     @loan =  Loan.new(loan_params)
     @loan.user_id = current_user.id
     if @loan.save
-      # binding.pry
       @loan.update(amount_with_interest: loan_params["principle_amount"])
-      redirect_to new_loan_path, flash: { notice: 'Loan request created.' }
+      redirect_to requested_loan_loan_path(@loan), flash: { notice: 'Loan request created.' }
     else
       flash[:notice] = "Something went wrong"
       render :new
@@ -42,9 +41,9 @@ class LoansController < ApplicationController
       @user =  User.find_by(role: "admin")
       @user.wallet.update(balance: @user.wallet.balance + @loan.amount_with_interest)
       @loan.update(state: 'closed')
-      redirect_to root_path, flash: { notice: 'Loan repaid successfully.' }
+      redirect_to open_loan_loans_path, flash: { notice: 'Loan repaid successfully.' }
     else
-      redirect_to root_path, flash: { notice: 'Insufficient balance to repay the loan.' }
+      redirect_to open_loan_loans_path, flash: { notice: 'Insufficient balance to repay the loan.' }
     end
   end
 
@@ -56,7 +55,7 @@ class LoansController < ApplicationController
   def destroy
     @loan = Loan.find_by(id: params[:id])
     @loan.destroy
-    redirect_to root_path, flash: { notice: 'Loan deleted successfully.' }
+    redirect_to requested_loan_loan_path, flash: { notice: 'Loan deleted successfully.' }
   end
 
   private

@@ -8,7 +8,6 @@
           <%= form.text_field :principle_amount, class: "form-control", placeholder: "Enter the amount" , required: true%>
           <p class='error'><%= show_errors(@loan, :principle_amount)%></p>
         </div>
-        <p>Note: Default interest rate will be 5%, Admin can modify it</p>
         <%= form.submit "Request", class: " mt-3 button-design btn-primary form-control mb-4 w-25 submit-button" %>
       <% end %>
     </div>

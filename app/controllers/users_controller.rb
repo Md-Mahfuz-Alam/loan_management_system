@@ -31,9 +31,9 @@ class UsersController < ApplicationController
   def reject_loan
     @loan = Loan.find(params[:id])
     if @loan.update(state: 'rejected')
-      redirect_to root_path, flash: { notice: 'Loan rejected.' }
+      redirect_to rejected_loans_path, flash: { notice: 'Loan rejected.' }
     else
-      redirect_to root_path, flash: { notice: 'Unable to reject loan.' }
+      redirect_to rejected_loans_path, flash: { notice: 'Unable to reject loan.' }
     end
   end
   def confirm_loan
@@ -44,7 +44,7 @@ class UsersController < ApplicationController
       @admin_user.wallet.update(balance: @admin_user.wallet.balance - @loan.principle_amount)
       InterestCalculatorJob.perform_async(@loan.id)
       DebitLoanJob.perform_async(@loan.id)
-      redirect_to root_path, flash: { notice:  'Loan confirmed and amount_with_interest credited to your wallet.' }
+      redirect_to open_loan_loans_path, flash: { notice:  'Loan confirmed and amount_with_interest credited to your wallet.' }
     end
   end
   private
