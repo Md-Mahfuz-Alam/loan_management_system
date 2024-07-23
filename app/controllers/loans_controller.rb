@@ -49,7 +49,6 @@ class LoansController < ApplicationController
 
   def rejected
     @loans = Loan.rejected_loans(current_user.id)
-
   end
 
   def destroy

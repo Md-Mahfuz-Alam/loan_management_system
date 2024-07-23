@@ -8,9 +8,6 @@ class AdminsController < ApplicationController
 
   def edit
     @interest_rate = Loan.find(params[:id]).interest_rate
-    respond_to do |format|
-      format.js
-    end
   end
 
   def update

@@ -10,7 +10,7 @@ class DebitLoanJob
 
     if loan.amount_with_interest > user.wallet.balance
       debit_amount = user.wallet.balance
-      admin_user =  User.find_by(admin: true)
+      admin_user =  User.find_by(role: "admin")
       admin_user.wallet.update(balance: admin_user.wallet.balance + debit_amount)
       user.wallet.balance = 0
       user.wallet.save!
